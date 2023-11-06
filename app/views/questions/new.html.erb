@@ -1,0 +1,23 @@
+<h1>Questions#new</h1>
+<p>Find me in app/views/questions/new.html.erb</p>
+<h1>Questions#create</h1>
+<p>Find me in app/views/questions/create.html.erb</p>
+<%= form_for @question do |f| %>
+    <div>
+        <label>User</label>
+        <%= f.select :member_id, Member.all.collect {|data| [data.name, data.id]}%>
+    </div>
+    </br>
+    <div>
+        <label>Title</label>
+        <%= f.text_field :title %>
+    </div>
+    </br>
+    <div>
+        <label>Content</label>
+        <%= f.text_area :content%>
+    </div>
+    <div>
+        <%= f.submit "Submit", disable_with: 'Submiting...'%>
+    </div>
+<% end %>
